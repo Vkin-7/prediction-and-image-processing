@@ -1,6 +1,5 @@
 const { Kafka } = require('kafkajs')
 
-
 var kafkaTestConnect=async()=>{
     const kafka = new Kafka({
       clientId: 'my-app',
@@ -17,15 +16,12 @@ var kafkaTestConnect=async()=>{
       })
       return producer
     }catch(e){
-      
       console.error(e)
     }finally{
       producer != null && producer.disconnect()
     }
     return 'Deu errado'
 }
-
-
 /*export var testeConsume=async ()=>{
   const kafka = new Kafka({
     clientId: 'my-app',
@@ -35,7 +31,7 @@ var kafkaTestConnect=async()=>{
 
   await consumer.connect()
   await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
-
+  
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       console.log({
